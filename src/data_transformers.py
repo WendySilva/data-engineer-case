@@ -6,13 +6,10 @@ from typing import Optional
 class DataTransformers:
     def __init__(
                   self, response: bytes, 
-                  spark: SparkSession, 
-                  df_spark: Optional[SparkDataFrame] = None,
-                  select_list: Optional[list] = None) -> None:
+                  spark: SparkSession) -> None:
         self.response = response
         self.spark = spark
         self._df: Optional[pd.DataFrame] = None
-        self.df_spark = df_spark
 
     def _bytes_buffer(self) -> io.BytesIO:
         return io.BytesIO(self.response)
