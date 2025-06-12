@@ -3,7 +3,7 @@ import pandas as pd
 from pyspark.sql import SparkSession, DataFrame as SparkDataFrame
 from typing import Optional
 
-class DataRequests:
+class DataTransformers:
     def __init__(
                   self, response: bytes, 
                   spark: SparkSession, 
