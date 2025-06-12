@@ -13,7 +13,6 @@ class DataTransformers:
         self.spark = spark
         self._df: Optional[pd.DataFrame] = None
         self.df_spark = df_spark
-        self.select_list = select_list
 
     def _bytes_buffer(self) -> io.BytesIO:
         return io.BytesIO(self.response)
@@ -25,12 +24,4 @@ class DataTransformers:
     def create_dataframe_spark(self) -> SparkDataFrame:
         self._create_dataframe_pandas()
         self.df_spark = self.spark.createDataFrame(self._df)
-        return self.df_spark
-
-    def select_dataframe_spark(self) -> SparkDataFrame:
-        if self.df_spark is None:
-            raise ValueError("O DataFrame Spark ainda não foi criado.")
-        if self.select_list is None:
-            raise ValueError("Nenhuma lista de colunas foi definida para seleção.")
-        self.df_spark = self.df_spark.select(self.select_list)
         return self.df_spark
