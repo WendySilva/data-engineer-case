@@ -122,6 +122,21 @@ SELECT * FROM ifood_case.gold.media_passageiros_hora;
 
 ---
 
+## ✅ Atendimento aos Requisitos do Desafio
+
+Este projeto cumpre integralmente os requisitos propostos no **Case Técnico de Data Engineer do iFood**, incluindo:
+
+- ✔️ Ingestão dos dados de corridas de táxi de NY (abril e maio de 2023) diretamente da fonte oficial em formato Parquet;
+- ✔️ Organização em camadas no Data Lake (**Bronze**, **Silver** e **Gold**), utilizando **Delta Lake** com **particionamento** e **Unity Catalog**;
+- ✔️ Disponibilização dos dados para consumo via **SQL** diretamente no Databricks;
+- ✔️ Implementação em **PySpark** com separação clara entre extração, transformação, análise e salvamento;
+- ✔️ Garantia das colunas obrigatórias: `VendorID`, `passenger_count`, `total_amount`, `tpep_pickup_datetime`, `tpep_dropoff_datetime`;
+- ✔️ Respostas às perguntas analíticas solicitadas, disponíveis no notebook [`/analysis/perguntas.ipynb`](https://github.com/WendySilva/ifood-case/blob/main/analysis/perguntas.ipynb):
+  - Média mensal de `total_amount` por frota.
+  - Média de `passenger_count` por hora, no mês de **maio/2023**.
+
+---
+
 ## 📬 Contato
 
 Desenvolvido por [@WendySilva](https://github.com/WendySilva)  
