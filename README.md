@@ -60,15 +60,20 @@ ifood-case/
 
 ### 1. Clone e use direto no Databricks
 
+Clone esse repositório
 No Databricks, vá em **Repos > Add Repo > Git URL** e insira:
 
 ```bash
-https://github.com/<seuGitHub>/ifood-case
+https://github.com/<seuGitHub>/data-engineer-case
 ```
+![image](https://github.com/user-attachments/assets/bb7bcddc-a369-4d17-ba38-599df3a3c588)
+
 ### 2. Configure uma External Location no Unity Catalog
 
-- Bucket: `s3://<seunome>-ifood-case/`
+- Ex. de nome para o Bucket: `s3://<seunome>-ifood-case/`
 - Role IAM com permissões de leitura/escrita no bucket
+
+![image](https://github.com/user-attachments/assets/a670d666-92cc-4ee6-a7c6-77132c6bf880)
 
 ##### Obs.: Não é necessário instalar dependências, pois você conseguirá executar diretamente no Databricks.
 
