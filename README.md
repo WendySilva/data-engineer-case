@@ -126,7 +126,7 @@ SELECT * FROM ifood_case.gold.media_passageiros_hora;
 
 Este projeto cumpre integralmente os requisitos propostos no **Case Técnico de Data Engineer do iFood**, incluindo:
 
-- ✔️ Ingestão dos dados de corridas de táxi de NY (abril e maio de 2023) diretamente da fonte oficial em formato Parquet;
+- ✔️ Ingestão dos dados de corridas de táxi de NY (janeiro e maio de 2023) diretamente da fonte oficial em formato Parquet;
 - ✔️ Organização em camadas no Data Lake (**Bronze**, **Silver** e **Gold**), utilizando **Delta Lake** com **particionamento** e **Unity Catalog**;
 - ✔️ Disponibilização dos dados para consumo via **SQL** diretamente no Databricks;
 - ✔️ Implementação em **PySpark** com separação clara entre extração, transformação, análise e salvamento;
