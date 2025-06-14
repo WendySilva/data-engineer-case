@@ -66,7 +66,7 @@ ifood-case/
 ```bash
 https://github.com/<seuGitHub>/data-engineer-case
 ```
-<img width="805" alt="image" src="https://github.com/user-attachments/assets/6cfacd19-9235-49d3-9022-54c19894df10" />
+<img width="805" alt="image" src="https://github.com/user-attachments/assets/22113e98-7fb3-4044-b732-c89a7c2b4abc" />
 
 ### 2. Configure uma External Location no Unity Catalog
 
