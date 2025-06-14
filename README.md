@@ -1,6 +1,6 @@
-# 🚕 iFood Case – Pipeline de Dados com PySpark e Databricks
+# 🚕 Case – Pipeline de Dados com PySpark e Databricks
 
-Este projeto foi desenvolvido como parte de um **case técnico para a posição de Data Engineer no iFood**, utilizando o **Databricks Free Edition** e versionado com **GitHub**.
+Este projeto foi desenvolvido como parte de um **case técnico para a posição de Data Engineer**, utilizando o **Databricks Free Edition** e versionado com **GitHub**.
 
 A solução foca na ingestão, transformação e análise de dados de táxis de Nova York com uma arquitetura em camadas (Bronze, Silver, Gold), utilizando **PySpark**, **Delta Lake** e armazenamento em **S3** via **Unity Catalog**.
 
