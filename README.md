@@ -60,8 +60,8 @@ ifood-case/
 
 ### 1. Clone e use direto no Databricks
 
-Clone esse repositório
-No Databricks, vá em **Repos > Add Repo > Git URL** e insira:
+- Clone esse repositório
+- No Databricks, vá em **Repos > Add Repo > Git URL** e insira:
 
 ```bash
 https://github.com/<seuGitHub>/data-engineer-case
