@@ -86,6 +86,12 @@ https://github.com/<seuGitHub>/data-engineer-case
 3. `etl_gold.ipynb` – Agrega métricas e salva tabelas finais  
 4. `analysis/perguntas.ipynb` – Executa as consultas finais
 
+Você consegue acompanhar os logs e erros da execução:
+![image](https://github.com/user-attachments/assets/9a4ca78f-bb46-41df-9569-f0f37daeddfc)
+
+
+
+
 ---
 
 ## 📊 Acesso aos Dados
@@ -114,6 +120,14 @@ SELECT * FROM ifood_case.gold.media_passageiros_hora;
 - Conta AWS com bucket S3 configurado e external location registrada
 - Permissões de leitura/gravação no Unity Catalog
 - Python 3.8+ com PySpark
+
+---
+
+## 🛠️ Considerações Técnicas
+
+- A leitura e criação inicial do DataFrame foi realizada com Pandas devido a uma limitação do cluster serverless disponibilizado na versão gratuita do Databricks.
+- Atenção: o uso de Pandas não é recomendado para ambientes com grandes volumes de dados, pois pode comprometer a performance e escalabilidade do pipeline.
+- Em ambientes de produção, recomenda-se utilizar PySpark para leitura, transformação e processamento dos dados.
 
 ---
 
