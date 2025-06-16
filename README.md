@@ -51,7 +51,7 @@ Camadas utilizadas:
 ![image](https://github.com/user-attachments/assets/aaab2299-d372-42b2-9d33-652e35f95d26)
 
 
-> ✉️ Os dados não foram modificados em conteúdo, apenas **padronizados os nomes das colunas** (para camelCase) e feito o cast de tipos adequados.
+> ✉️ Os dados não foram modificados em conteúdo, apenas **padronizados os nomes das colunas** (para snake_case) e feito o cast de tipos adequados.
 
 
 ---
