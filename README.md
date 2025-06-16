@@ -8,10 +8,10 @@ A solução foca na ingestão, transformação e análise de dados de táxis de 
 
 ## 🎯 Objetivo
 
--Ingerir dados das corridas de Yellow Taxis de NY (jan a mai/2023).
--Criar uma estrutura de Data Lake com camadas Bronze → Silver → Gold.
--Criar tabelas no Unity Catalog.
--Disponibilizar os dados via SQL.
+- Ingerir dados das corridas de Yellow Taxis de NY (jan a mai/2023).
+- Criar uma estrutura de Data Lake com camadas Bronze → Silver → Gold.
+- Criar tabelas no Unity Catalog.
+- Disponibilizar os dados via SQL.
 
 ---
 
