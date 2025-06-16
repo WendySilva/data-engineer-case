@@ -8,10 +8,18 @@ A solução foca na ingestão, transformação e análise de dados de táxis de 
 
 ## 🎯 Objetivo
 
-- Ingerir dados das corridas de Yellow Taxis de NY (jan a mai/2023).
-- Armazenar e estruturar os dados no formato Delta Lake em camadas (Bronze → Silver → Gold).
-- Criar tabelas no Unity Catalog.
-- Responder duas perguntas analíticas usando PySpark e SQL.
+-Ingerir dados das corridas de Yellow Taxis de NY (jan a mai/2023).
+-Criar uma estrutura de Data Lake com camadas Bronze → Silver → Gold.
+-Criar tabelas no Unity Catalog.
+-Disponibilizar os dados via SQL.
+
+---
+
+## 🧠 Dados Utilizados
+
+Fonte oficial: [TLC Trip Record Data](https://www.nyc.gov/site/tlc/about/tlc-trip-record-data.page)
+
+Foram utilizados os dados de **Janeiro a Julho de 2023**, considerando a observação na documentação de que os dados podem levar até **dois meses** para serem disponibilizados. Os meses 06 e 07 foram incluídos na ingestão, mas **apenas os meses de jan-mai foram utilizados nas análises finais**, conforme exigido no desafio. Um filtro de meses foi aplicado diretamente no código
 
 ---
 
@@ -30,6 +38,21 @@ A solução foca na ingestão, transformação e análise de dados de táxis de 
 - [x] **Amazon S3** (via External Location)
 - [x] **Unity Catalog**
 - [x] **GitHub** (controle de versão)
+
+---
+
+## 📂 Arquitetura
+Camadas utilizadas:
+
+- **Bronze**: Armazena os arquivos .parquet sem modificações.
+- **Silver**: Aplica seleção de colunas, padroniza nomes e cria a particao `year_month`.
+- **Gold**: Agrega métricas e disponibiliza os dados finais para análise.
+
+![image](https://github.com/user-attachments/assets/aaab2299-d372-42b2-9d33-652e35f95d26)
+
+
+> ✉️ Os dados não foram modificados em conteúdo, apenas **padronizados os nomes das colunas** (para camelCase) e feito o cast de tipos adequados.
+
 
 ---
 
@@ -75,7 +98,7 @@ https://github.com/<seuGitHub>/data-engineer-case
 
 ![image](https://github.com/user-attachments/assets/a670d666-92cc-4ee6-a7c6-77132c6bf880)
 
-##### Obs.: Não é necessário instalar dependências, pois você conseguirá executar diretamente no Databricks.
+##### Obs.: para instalar as dependencias é só usar `pip install -r requirements.txt`
 
 ---
 
@@ -88,8 +111,6 @@ https://github.com/<seuGitHub>/data-engineer-case
 
 Você consegue acompanhar os logs e erros da execução:
 ![image](https://github.com/user-attachments/assets/9a4ca78f-bb46-41df-9569-f0f37daeddfc)
-
-
 
 
 ---
@@ -114,6 +135,22 @@ SELECT * FROM ifood_case.gold.media_passageiros_hora;
 
 ---
 
+## 📊 Resultados Analíticos
+
+### Média mensal de total_amount (2023-01 a 2023-05)
+| year_month | media_total_amount |
+|------------|--------------------|
+| 2023-01    | 27.02              |
+| 2023-02    | 26.9               |
+| 2023-03    | 27.9               |
+| 2023-04    | 28.27              |
+| 2023-05    | 28.96              |
+
+### Média de passageiros por hora (maio/2023)
+744 linhas correspondentes às combinações de `data x hora` com médias arredondadas entre 1.2 a 1.5 passageiros.
+
+---
+
 ## 📦 Requisitos
 
 - Databricks Free Edition (https://www.databricks.com/learn/free-edition)
@@ -123,11 +160,42 @@ SELECT * FROM ifood_case.gold.media_passageiros_hora;
 
 ---
 
-## 🛠️ Considerações Técnicas
+## 🖼️ Imagens
 
-- A leitura e criação inicial do DataFrame foi realizada com Pandas devido a uma limitação do cluster serverless disponibilizado na versão gratuita do Databricks.
-- Atenção: o uso de Pandas não é recomendado para ambientes com grandes volumes de dados, pois pode comprometer a performance e escalabilidade do pipeline.
-- Em ambientes de produção, recomenda-se utilizar PySpark para leitura, transformação e processamento dos dados.
+- Camada Bronze
+  - Notebook
+    ![image](https://github.com/user-attachments/assets/16099c71-0e92-40f4-a564-40b285ecafed)
+    
+  - Bucket
+    ![image](https://github.com/user-attachments/assets/dc03d9e9-2818-429e-8e09-efe264b48f70)
+    
+  - Tabela
+    ![image](https://github.com/user-attachments/assets/274af521-22d2-4cd1-9226-afc49f67b24a)
+ 
+- Camada Silver
+  - Notebook
+    ![image](https://github.com/user-attachments/assets/7d8390e2-dac7-4f63-a559-5aad5a8e855d)
+    
+  - Bucket
+    ![image](https://github.com/user-attachments/assets/d897a148-df38-4ca9-aae1-4c089045e723)
+
+  - Tabela
+    ![image](https://github.com/user-attachments/assets/fb3fa78e-b382-4f2f-bd41-e04844f69191)
+
+- Camada Gold
+  - Notebook
+    ![image](https://github.com/user-attachments/assets/b22f1297-e71e-4f29-b787-c3af4cfe47b7)
+
+  - Bucket
+    ![image](https://github.com/user-attachments/assets/39ff1bfa-caf7-4634-9030-7666ca48c1a3)
+
+  - Tabela
+    ![image](https://github.com/user-attachments/assets/64a2e3ac-5e93-4f50-a716-e0ca3b479e35)
+    
+  - Perguntas
+    ![image](https://github.com/user-attachments/assets/d3f07d4b-17ad-43c5-809b-c86923a0c882)
+
+
 
 ---
 
