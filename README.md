@@ -62,18 +62,19 @@ Camadas utilizadas:
 ifood-case/
 ├── src/
 │   ├── data_requests.py          # Download dos arquivos .parquet
-│   ├── data_transformers.py      # Transformações (ingestão, partição, colunas)
-│   ├── save_data.py              # Escrita no S3 / Escrita no Unity Catalog
-│   └── data_analysis.py          # Análises com PySpark
+│   ├── data_transformers.py      # Transformação, seleção, particionamento
+│   ├── save_data.py              # Escrita no S3 / Unity Catalog
+│   └── data_analysis.py          # Análises PySpark (gold)
 │
-├── etl_bronze.ipynb              # Baixa dados e salva na camada Bronze
-├── etl_silver.ipynb              # Filtra e transforma para Silver
-├── etl_gold.ipynb                # Agrega e salva resultados finais (Gold)
+├── etl_bronze.ipynb              # Ingestão + escrita raw no S3
+├── etl_silver.ipynb              # Seleciona colunas e particiona
+├── etl_gold.ipynb                # Calcula métricas e escreve tabelas finais
 │
 ├── analysis/
-│   └── perguntas.ipynb           # Consulta dos resultados analíticos
+│   └── perguntas.ipynb           # Consulta resultados analíticos
 │
-├── requirements.txt
+├── .env.example                  # Variáveis de ambiente (chaves AWS)
+├── requirements.txt              # Dependências do projeto
 └── README.md
 ```
 
